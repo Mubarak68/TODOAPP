@@ -1,21 +1,27 @@
 ﻿@page "/TodoList"
 <h3>TodoList</h3>
+<button class="btn btn-primary" @onclick="OnAddTaskClickrd">Create Task</button>
 <PageTitle>TodoList</PageTitle>
 
-@foreach(var t in Items)
+@foreach (var t in Items)
 {
     <TodoItemView todo="t"></TodoItemView>
 }
 @code {
-        public List<TodoItem> Items { get; set; }
-
-        protected override void OnInitialized()
-        {
-            Items = new List<TodoItem>{
+    public List<TodoItem> Items { get; set; }
+    [Inject] public NavigationManager manager { get; set; }
+    protected override void OnInitialized()
+    {
+        Items = new List<TodoItem>{
                     new TodoItem{ Description = "Complete all Coded Assignments", IsCompleted = false, Id = 1, DueDate = new DateTime(2024,04,30)},
                     new TodoItem{ Description = "Appartment Rent Paid", IsCompleted = true, Id = 2 },
                     new TodoItem{ Description = "Clean My Room", IsCompleted = false, Id = 3 }
         };
-        }
+    }
+
+    public void OnAddTaskClickrd()
+    {
+        manager.NavigateTo("Todocreate/create");
+    }
 
 }
