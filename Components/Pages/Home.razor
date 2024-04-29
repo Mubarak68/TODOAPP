@@ -6,10 +6,14 @@
 
 Welcome to your new app.
 
-<TodoComponent TodoItem="">
+<TodoComponent TodoItem="item1">
 
 </TodoComponent>
 
 @code{
-    new TodoItem{ Description = "finsh assignment"}
+    public TodoItem item1 = new TodoItem 
+    { Description = "finsh assignment",
+    DueDate = DateTime.Now,
+    IsCompleted = false,
+    Id = 1};
 }

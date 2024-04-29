@@ -1,4 +1,4 @@
-﻿namespace BlazorApp1.Model.Entity
+﻿namespace TodoApp.Model.Entity
 {
     public class TodoItem
     {

@@ -1,0 +1,12 @@
+﻿<h3>TodoItemView</h3>
+
+@using TodoApp.Model.Entity
+
+<div class="card">
+    <div class="card-body">
+        @TodoItem.Description (@(TodoItem.IsCompleted ? "Completed" : "Underprogress"))
+    </div>
+</div>
+@code {
+    [Parameter] public TodoItem TodoItem { get; set; }
+}
