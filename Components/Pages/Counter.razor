@@ -1,5 +1,5 @@
 ﻿@page "/counter"
-
+@using BlazorApp1.Model
 <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
@@ -9,10 +9,11 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    private int currentCount = 0;
+    [CascadingParameter] public ApplicationState State { get; set; }
+    private int currentCount => State.CurrentCounter;
 
     private void IncrementCount()
     {
-        currentCount++;
+        State.Increment();
     }
 }
